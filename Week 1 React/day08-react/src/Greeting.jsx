@@ -21,6 +21,9 @@ export default function Greeting({ name, role, avatar }) {
         className="greeting-card__avatar"
         src={avatar || "/default-avatar.png"}
         alt={`Ảnh đại diện của ${displayName}`}
+        onError={(e) => {
+          e.currentTarget.src = "/default-avatar.png";
+        }}
       />
 
       <h2 className="greeting-card__name">{displayName}</h2>
