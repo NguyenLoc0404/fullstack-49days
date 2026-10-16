@@ -1,4 +1,5 @@
 import Greeting from "./Greeting";
+import Counter from "./Counter";
 import "./App.css";
 export default function App() {
   const users = [
@@ -33,5 +34,10 @@ export default function App() {
       );
     });
   }
-  return <div>{renderUser(users)}</div>;
+  return (
+    <div>
+      {/* {renderUser(users)} */}
+      <Counter />
+    </div>
+  );
 }
