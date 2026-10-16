@@ -22,6 +22,7 @@ export default function Greeting({ name, role, avatar }) {
         src={avatar || "/default-avatar.png"}
         alt={`Ảnh đại diện của ${displayName}`}
         onError={(e) => {
+          e.currentTarget.onerror = null;
           e.currentTarget.src = "/default-avatar.png";
         }}
       />
