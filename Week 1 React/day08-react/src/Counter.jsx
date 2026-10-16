@@ -38,7 +38,7 @@ export default function Counter() {
   }
   function renderHistoies() {
     return histoies.map((history, index) => (
-      <p>
+      <p key={index}>
         {index + 1}. {history.action}: {history.pre} - {history.next}
       </p>
     ));
