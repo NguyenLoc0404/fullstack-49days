@@ -14,13 +14,18 @@ export default function App() {
     fetch("https://randomuser.me/api/", {
       signal: controller.signal,
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.ok) return res.json();
+        else throw new Error(`HTTP error: ${res.status}`);
+      })
       .then((data) => {
+        if (!isCurrent) return;
         const { results } = data;
         if (results?.length > 0) setUser(results[0]);
         else throw new Error("Không tìm thấy User");
       })
       .catch((err) => {
+        if (!isCurrent) return;
         if (err.name === "AbortError") return;
         setError(err);
       })
