@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Greeting from "./Greeting";
 import Counter from "./Counter";
 import User from "./User";
+import ControlledInput from "./ControlledInput";
 import "./App.css";
 export default function App() {
   const [user, setUser] = useState(null);
@@ -83,7 +84,7 @@ export default function App() {
       {/* {renderUser(users)} */}
       {/* <Counter /> */}
       {/* day 10- useEffect */}
-      {!loading && user && <User user={user} />}
+      {/* {!loading && user && <User user={user} />}
       {renderStatus()}
       <button
         onClick={() => {
@@ -93,7 +94,11 @@ export default function App() {
         }}
       >
         Refresh User
-      </button>
+      </button> */}
+      {/* end day 10*/}
+      {/* day 11- Forms & Validation */}
+      <ControlledInput />
+      {/* end day 11*/}
     </div>
   );
 }
