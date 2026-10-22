@@ -3,6 +3,7 @@ import Greeting from "./Greeting";
 import Counter from "./Counter";
 import User from "./User";
 import ControlledInput from "./ControlledInput";
+import UserDirectory from "./UserDirectory";
 import "./App.css";
 export default function App() {
   const [user, setUser] = useState(null);
@@ -97,8 +98,11 @@ export default function App() {
       </button> */}
       {/* end day 10*/}
       {/* day 11- Forms & Validation */}
-      <ControlledInput />
+      {/* <ControlledInput /> */}
       {/* end day 11*/}
+      {/* day 12- Lists, Search & Filter */}
+      <UserDirectory />
+      {/* end day 12*/}
     </div>
   );
 }
