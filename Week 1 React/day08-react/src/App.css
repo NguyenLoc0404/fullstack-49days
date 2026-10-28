@@ -3,3 +3,27 @@
   border-radius: 10px;
   margin: 5px;
 }
+.product-card-div {
+  border: 1px solid #9e9e9e9c;
+  border-radius: 4px;
+  width: 300px;
+  margin: 4px;
+  img {
+    width: 200px;
+  }
+  button {
+    margin-bottom: 6px;
+  }
+}
+.primary {
+  background: green;
+  border: 1px solid gray;
+}
+.success {
+  background: red;
+  border: 1px solid gray;
+}
+.outline {
+  background: transparent;
+  border: 1px solid gray;
+}

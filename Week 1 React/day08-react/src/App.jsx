@@ -4,6 +4,7 @@ import Counter from "./Counter";
 import User from "./User";
 import ControlledInput from "./ControlledInput";
 import UserDirectory from "./UserDirectory";
+import ProductCard from "./ProductCard";
 import "./App.css";
 export default function App() {
   const [user, setUser] = useState(null);
@@ -46,6 +47,35 @@ export default function App() {
     if (error) return <p>Không tải được user.</p>;
 
     return null;
+  }
+
+  const products = [
+    {
+      id: 1,
+      name: "keyChrone K8",
+      price: 1290000,
+      rating: 4.5,
+      reviewCount: 128,
+      description: "Bàn phím cơ nhỏ gọn.",
+      image:
+        "https://www.phongcachxanh.vn/cdn/shop/products/ban-phim-c-filco-majestouch-minila-r-convertible-37018668663029.jpg",
+    },
+    {
+      id: 2,
+      name: "Filco Majestic",
+      price: 4500000,
+      rating: 4.0,
+      reviewCount: 140,
+      description: "Bàn phím cơ nhỏ gọn.",
+      image:
+        "https://www.phongcachxanh.vn/cdn/shop/products/ban-phim-c-filco-majestouch-minila-r-convertible-37018668663029.jpg",
+    },
+  ];
+
+  function renderProducts() {
+    return products.map((product) => (
+      <ProductCard product={product} key={product.id} />
+    ));
   }
 
   // const users = [
@@ -99,10 +129,13 @@ export default function App() {
       {/* end day 10*/}
       {/* day 11- Forms & Validation */}
       {/* <ControlledInput /> */}
-      {/* end day 11*/}
+      {/* end day 11*/} 
       {/* day 12- Lists, Search & Filter */}
-      <UserDirectory />
+      {/*<UserDirectory />*/}
       {/* end day 12*/}
+      {/* day 13- Component Design & Styling */}
+      {renderProducts()}
+      {/* end day 13*/}
     </div>
   );
 }
