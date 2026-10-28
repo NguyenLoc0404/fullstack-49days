@@ -5,12 +5,14 @@ import User from "./User";
 import ControlledInput from "./ControlledInput";
 import UserDirectory from "./UserDirectory";
 import ProductCard from "./ProductCard";
+import TodoApp from "./TodoApp";
 import "./App.css";
 export default function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [refreshKey, setRefreshKey] = useState(0);
+
   useEffect(() => {
     const controller = new AbortController();
     let isCurrent = true;
@@ -72,11 +74,11 @@ export default function App() {
     },
   ];
 
-  function renderProducts() {
-    return products.map((product) => (
-      <ProductCard product={product} key={product.id} />
-    ));
-  }
+  // function renderProducts() {
+  //   return products.map((product) => (
+  //     <ProductCard product={product} key={product.id} />
+  //   ));
+  // }
 
   // const users = [
   //   {
@@ -134,8 +136,11 @@ export default function App() {
       {/*<UserDirectory />*/}
       {/* end day 12*/}
       {/* day 13- Component Design & Styling */}
-      {renderProducts()}
+      {/* {renderProducts()} */}
       {/* end day 13*/}
+      {/* day 14- To do App */}
+      <TodoApp/>
+      {/* end day 14*/}
     </div>
   );
 }
