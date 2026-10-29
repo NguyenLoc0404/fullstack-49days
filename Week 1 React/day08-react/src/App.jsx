@@ -1,4 +1,12 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  useNavigate,
+  Outlet,
+  useParams,
+} from "react-router-dom";
 import Greeting from "./Greeting";
 import Counter from "./Counter";
 import User from "./User";
@@ -7,6 +15,133 @@ import UserDirectory from "./UserDirectory";
 import ProductCard from "./ProductCard";
 import TodoApp from "./TodoApp";
 import "./App.css";
+
+const products = [
+  {
+    id: 1,
+    name: "keyChrone K8",
+    price: 1290000,
+    rating: 4.5,
+    reviewCount: 128,
+    description: "Bàn phím cơ nhỏ gọn.",
+    image:
+      "https://www.phongcachxanh.vn/cdn/shop/products/ban-phim-c-filco-majestouch-minila-r-convertible-37018668663029.jpg",
+  },
+  {
+    id: 2,
+    name: "Filco Majestic",
+    price: 4500000,
+    rating: 4.0,
+    reviewCount: 140,
+    description: "Bàn phím cơ nhỏ gọn.",
+    image:
+      "https://www.phongcachxanh.vn/cdn/shop/products/ban-phim-c-filco-majestouch-minila-r-convertible-37018668663029.jpg",
+  },
+];
+function Products() {
+  const navigate = useNavigate();
+  function goToProductDetail(id) {
+    navigate(`/products/${id}`);
+  }
+  return (
+    <>
+      <h1>Products Page</h1>
+      {products.map((product) => (
+        <ProductCard product={product} key={product.id}>
+          <button
+            className="view-detail"
+            onClick={() => goToProductDetail(product.id)}
+          >
+            View Detail
+          </button>
+        </ProductCard>
+      ))}
+    </>
+  );
+}
+
+function ProductDetail() {
+  const { id } = useParams();
+  const productItem = products.find((item) => String(item.id) === id);
+  console.log("productItem", productItem);
+  const navigate = useNavigate();
+  function backToProducts() {
+    navigate(`/products`);
+  }
+
+  return (
+    <>
+      <h1>Product ID: {id}</h1>
+      <button onClick={backToProducts}>Back</button>
+      {productItem ? (
+        <ProductCard product={productItem} />
+      ) : (
+        <NotFoundProduct />
+      )}
+    </>
+  );
+}
+
+function MainLayout() {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
+}
+
+function BackButton({ navigate }) {
+  return <button onClick={() => navigate(-1)}>Go Back</button>;
+}
+
+function Home() {
+  const navigate = useNavigate();
+  function goToProductPage() {
+    navigate("/products");
+  }
+  return (
+    <>
+      <h1>Home Page</h1>
+      <button onClick={goToProductPage}>Go To Production</button>
+      <BackButton navigate={navigate} />
+    </>
+  );
+}
+
+function NotFoundProduct() {
+  return (
+    <>
+      <h1>404 - Product Not Found</h1>
+      <p>Product bạn tìm không tồn tại.</p>
+    </>
+  );
+}
+
+function NotFound() {
+  return (
+    <>
+      <h1>404 - Page Not Found</h1>
+      <p>Trang bạn tìm không tồn tại.</p>
+    </>
+  );
+}
+
+function Navbar() {
+  return (
+    <nav>
+      <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
+        Home
+      </NavLink>
+      <NavLink
+        to="/products"
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
+        Products
+      </NavLink>
+    </nav>
+  );
+}
 export default function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -51,29 +186,6 @@ export default function App() {
     return null;
   }
 
-  const products = [
-    {
-      id: 1,
-      name: "keyChrone K8",
-      price: 1290000,
-      rating: 4.5,
-      reviewCount: 128,
-      description: "Bàn phím cơ nhỏ gọn.",
-      image:
-        "https://www.phongcachxanh.vn/cdn/shop/products/ban-phim-c-filco-majestouch-minila-r-convertible-37018668663029.jpg",
-    },
-    {
-      id: 2,
-      name: "Filco Majestic",
-      price: 4500000,
-      rating: 4.0,
-      reviewCount: 140,
-      description: "Bàn phím cơ nhỏ gọn.",
-      image:
-        "https://www.phongcachxanh.vn/cdn/shop/products/ban-phim-c-filco-majestouch-minila-r-convertible-37018668663029.jpg",
-    },
-  ];
-
   // function renderProducts() {
   //   return products.map((product) => (
   //     <ProductCard product={product} key={product.id} />
@@ -112,6 +224,7 @@ export default function App() {
   //     );
   //   });
   // }
+
   return (
     <div>
       {/* {renderUser(users)} */}
@@ -131,7 +244,7 @@ export default function App() {
       {/* end day 10*/}
       {/* day 11- Forms & Validation */}
       {/* <ControlledInput /> */}
-      {/* end day 11*/} 
+      {/* end day 11*/}
       {/* day 12- Lists, Search & Filter */}
       {/*<UserDirectory />*/}
       {/* end day 12*/}
@@ -139,8 +252,20 @@ export default function App() {
       {/* {renderProducts()} */}
       {/* end day 13*/}
       {/* day 14- To do App */}
-      <TodoApp/>
+      {/* <TodoApp/> */}
       {/* end day 14*/}
+      {/* day 15- React Router*/}
+      <BrowserRouter>
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductDetail />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      {/* end day 15*/}
     </div>
   );
 }

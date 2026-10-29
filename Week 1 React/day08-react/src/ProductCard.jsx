@@ -1,5 +1,5 @@
 import Button from "./components/Button";
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, children }) {
   const formattedPrice = new Intl.NumberFormat("vi-VN", {
     style: "currency",
     currency: "VND",
@@ -12,6 +12,7 @@ export default function ProductCard({ product }) {
       <p>{formattedPrice}</p>
       <p>{product.description}</p>
       <Button>Add to Cart</Button>
+      {children}
     </div>
   );
 }
