@@ -44,5 +44,24 @@
 }
 
 .view-detail {
-  margin-left: 5px
+  margin-left: 5px;
+}
+
+.div-header-content {
+  font-weight: bold;
+  margin-top: 5px;
+  border-radius: 10px 10px 0 0;
+}
+.div-card-content {
+  border-radius: 0 0 10px 10px;
+}
+
+.div-light {
+  background-color: #f3f4f6;
+  color: black;
+}
+
+.div-black {
+  background-color: #08060dc2;
+  color: white;
 }

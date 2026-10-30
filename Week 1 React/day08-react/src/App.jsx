@@ -14,6 +14,8 @@ import ControlledInput from "./ControlledInput";
 import UserDirectory from "./UserDirectory";
 import ProductCard from "./ProductCard";
 import TodoApp from "./TodoApp";
+import Header from "./components/Header";
+import Card from "./components/Card";
 import "./App.css";
 
 const products = [
@@ -255,7 +257,7 @@ export default function App() {
       {/* <TodoApp/> */}
       {/* end day 14*/}
       {/* day 15- React Router*/}
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
@@ -264,8 +266,12 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
       {/* end day 15*/}
+      {/* day 16- Context API */}
+       <Header/>
+       <Card/>
+      {/* end day 16*/}
     </div>
   );
 }
