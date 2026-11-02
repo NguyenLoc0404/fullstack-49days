@@ -18,6 +18,7 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 import CounterCp from "./components/CounterCp";
 import AnotherCounter from "./components/AnotherCounter";
+import PostList from "./components/PostList"
 import "./App.css";
 
 const products = [
@@ -275,8 +276,11 @@ export default function App() {
       {/*  <Card/>*/}
       {/* end day 16*/}
       {/* day 17- Custom Hook */}
-      <CounterCp />
-      <AnotherCounter/>
+      {/* <CounterCp /> */}
+      {/* <AnotherCounter/> */}
+      {/* end day 17*/}
+       {/* day 18- Axios */}
+      <PostList />
       {/* end day 17*/}
     </div>
   );
