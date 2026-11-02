@@ -16,6 +16,8 @@ import ProductCard from "./ProductCard";
 import TodoApp from "./TodoApp";
 import Header from "./components/Header";
 import Card from "./components/Card";
+import CounterCp from "./components/CounterCp";
+import AnotherCounter from "./components/AnotherCounter";
 import "./App.css";
 
 const products = [
@@ -269,9 +271,13 @@ export default function App() {
       </BrowserRouter> */}
       {/* end day 15*/}
       {/* day 16- Context API */}
-       <Header/>
-       <Card/>
+      {/* <Header/>*/}
+      {/*  <Card/>*/}
       {/* end day 16*/}
+      {/* day 17- Custom Hook */}
+      <CounterCp />
+      <AnotherCounter/>
+      {/* end day 17*/}
     </div>
   );
 }
