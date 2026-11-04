@@ -18,7 +18,11 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 import CounterCp from "./components/CounterCp";
 import AnotherCounter from "./components/AnotherCounter";
-import PostList from "./components/PostList"
+import PostList from "./components/PostList";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
+import GuestRoute from "./components/GuestRoute";
 import "./App.css";
 
 const products = [
@@ -279,9 +283,40 @@ export default function App() {
       {/* <CounterCp /> */}
       {/* <AnotherCounter/> */}
       {/* end day 17*/}
-       {/* day 18- Axios */}
-      <PostList />
-      {/* end day 17*/}
+      {/* day 18- Axios */}
+      {/* <PostList /> */}
+      {/* end day 18*/}
+      {/* day 19- JWT Flow */}
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <GuestRoute>
+                <Login />
+              </GuestRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <GuestRoute>
+                <Login />
+              </GuestRoute>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+      {/* end day 19*/}
     </div>
   );
 }
