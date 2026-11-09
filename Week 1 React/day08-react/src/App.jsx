@@ -19,6 +19,9 @@ import Card from "./components/Card";
 import CounterCp from "./components/CounterCp";
 import AnotherCounter from "./components/AnotherCounter";
 import PostList from "./components/PostList";
+import PostListQuery from "./components/PostListQuery";
+import ProductList from "./components/ProductList";
+import AddProduct from "./components/AddProduct";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -287,7 +290,7 @@ export default function App() {
       {/* <PostList /> */}
       {/* end day 18*/}
       {/* day 19- JWT Flow */}
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route
             path="/"
@@ -315,8 +318,14 @@ export default function App() {
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
       {/* end day 19*/}
+      {/* day 20- TanStack Query */}
+      {/* <PostListQuery />
+      <PostList /> */}
+      <ProductList />
+      <AddProduct/>
+      {/* end day 20*/}
     </div>
   );
 }
